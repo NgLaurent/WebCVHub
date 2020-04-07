@@ -1,0 +1,46 @@
+server:
+  port: 8080
+
+spring:
+  jackson:
+    mapper:
+      DEFAULT_VIEW_INCLUSION: true 
+    serialization: 
+      indent_output: true
+      WRITE_DATES_AS_TIMESTAMPS: false
+    deserialization:
+      FAIL_ON_IGNORED_PROPERTIES: false
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+      ACCEPT_SINGLE_VALUE_AS_ARRAY: true
+    default-property-inclusion: non_empty 
+
+
+  datasource:
+    url: jdbc:postgresql://ec2-54-195-252-243.eu-west-1.compute.amazonaws.com:5432/d7lauvcuknodcg
+    username: cvsmejpwxpuqbe
+    password: 956a6bd8322eea02fc77ff34a796a05f5a3677f61bad5893a17c9ca43c63e9c7
+    cachePrepStmts: true
+    prepStmtCacheSize: 250
+    prepStmtCacheSqlLimit: 2048
+    useServerPrepStmts: true
+
+  jpa:
+    openInView: false
+    show_sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      # fixes Caused by: java.sql.SQLFeatureNotSupportedException: Method org.postgresql.jdbc.PgConnection.createClob() is not yet implemented.
+      hibernate.jdbc.lob.non_contextual_creation: true
+
+  data:
+    jpa:
+      repositories.enabled: true
+
+logging:
+  level:
+    org.springframework.web: INFO
+    org.springframework.security: DEBUG
+    com.example: DEBUG
+  file: app.log

@@ -1,0 +1,6 @@
+com\example\demo\VehicleControllerTest.class
+com\example\demo\VehicleJpaTest.class
+com\example\demo\ApplicationTests.class
+com\example\demo\VehicleRepositoryTest.class
+com\example\demo\IntegrationTests.class
+com\example\demo\VehicleTest.class
